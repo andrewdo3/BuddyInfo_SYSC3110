@@ -24,6 +24,9 @@ public class AddressBook
     }
 
     public static void main(String[] args) {
-        System.out.print("Hello World!");
+        BuddyInfo guy = new BuddyInfo("Dude");
+        AddressBook a1 = new AddressBook();
+        a1.addBuddy(guy);
+        a1.removeBuddy(guy);
     }
 }
