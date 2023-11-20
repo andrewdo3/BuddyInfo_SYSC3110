@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class BuddyInfo {
     private String name;
     private String address;
@@ -16,9 +18,11 @@ public class BuddyInfo {
     public void setName(String name) {
         this.name = name;
     }
-    public static void importBuddyInfo()
+    public static BuddyInfo importBuddyInfo(String s)
     {
-
+        s = s.strip();
+        Scanner input = new Scanner(s).useDelimiter("#");
+        return new BuddyInfo(input.next(), input.next(), input.next());
     }
     @Override
     public boolean equals(Object obj) {

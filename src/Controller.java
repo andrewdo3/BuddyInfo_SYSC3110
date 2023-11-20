@@ -27,6 +27,14 @@ public class Controller implements ActionListener {
                 throw new RuntimeException(ex);
             }
         }
+        else if(a.equals("Import"))
+        {
+            try {
+                book.importAddressBook((String) JOptionPane.showInputDialog("Name of file"));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
         else if(a.equals("Display"))
         {
             for(AddressBookViewFrame view: book.getViews())

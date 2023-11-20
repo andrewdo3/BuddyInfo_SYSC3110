@@ -29,6 +29,9 @@ public class AddressBookViewFrame extends JFrame {
         item = new JMenuItem("Export");
         item.addActionListener(c);
         options.add(item);
+        item = new JMenuItem("Import");
+        item.addActionListener(c);
+        options.add(item);
 
         item = new JMenuItem("Display");
         item.addActionListener(c);

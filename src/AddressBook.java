@@ -4,10 +4,7 @@
  */
 
 import javax.swing.*;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,15 +53,27 @@ public class AddressBook
     }
 
     public void save(String fileName) throws IOException {
-        FileOutputStream ostream = new  FileOutputStream(fileName);
-
-        ObjectOutputStream p = new ObjectOutputStream(ostream);
+        FileWriter p = new FileWriter(fileName);
 
         for(BuddyInfo b: buddyInfos)
         {
-            p.writeObject(b.toString());
+            p.write(b.toString());
         }
-        ostream.close();
+        p.close();
+    }
+
+    public void importAddressBook(String fileName) throws IOException {
+        FileReader iStream = new FileReader(fileName);
+
+        BufferedReader dStream = new BufferedReader(iStream);
+
+        String line = dStream.readLine();
+        while(line != null)
+        {
+            addBuddy(BuddyInfo.importBuddyInfo(line));
+            line = dStream.readLine();
+        }
+        dStream.close();
     }
 
     public static void main(String[] args) {
