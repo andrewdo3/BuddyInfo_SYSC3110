@@ -27,7 +27,8 @@ public class Controller implements ActionListener {
         {
             String name = JOptionPane.showInputDialog("Enter Name");
             String address = JOptionPane.showInputDialog("Enter Address");
-            book.addBuddy(new BuddyInfo(name, address));
+            String number = JOptionPane.showInputDialog("Enter PhoneNumber");
+            book.addBuddy(new BuddyInfo(name, address, number));
         }
         else if (a.equals("Remove Buddy"))
         {
@@ -35,7 +36,7 @@ public class Controller implements ActionListener {
             {
                 String input =view.getBuddyList().getSelectedValue();
                 String[] s = input.split(" ");
-                book.removeBuddy(new BuddyInfo(s[0], s[1]));
+                book.removeBuddy(new BuddyInfo(s[0], s[1], s[2]));
             }
         }
     }

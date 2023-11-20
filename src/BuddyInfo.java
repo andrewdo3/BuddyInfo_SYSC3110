@@ -1,10 +1,12 @@
 public class BuddyInfo {
     private String name;
     private String address;
+    private String phoneNumber;
 
-    public BuddyInfo(String name, String address) {
+    public BuddyInfo(String name, String address, String phoneNumber) {
         this.name = name;
         this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {
@@ -25,9 +27,5 @@ public class BuddyInfo {
     }
 
     public static void main(String[] args) {
-        BuddyInfo homer = new BuddyInfo("Homer", "Yurt");
-        AddressBook addressBook = new AddressBook();
-        addressBook.addBuddy(homer);
-        addressBook.removeBuddy(homer);
     }
 }

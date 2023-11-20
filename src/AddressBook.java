@@ -52,13 +52,5 @@ public class AddressBook
     }
 
     public static void main(String[] args) {
-        BuddyInfo guy = new BuddyInfo("Dude", "Y");
-        BuddyInfo girl = new BuddyInfo("Gal", "X");
-        AddressBook a1 = new AddressBook();
-        a1.addBuddy(guy);
-        a1.removeBuddy(guy);
-        a1.addBuddy(girl);
-        a1.removeBuddy(girl);
-        //Testing Editing in GitHub
     }
 }
