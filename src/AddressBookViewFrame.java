@@ -14,6 +14,8 @@ public class AddressBookViewFrame extends JFrame {
 
         menuBar = new JMenuBar();
         setJMenuBar(menuBar);
+        JMenu options = new JMenu("Options");
+        menuBar.add(options);
         JMenu addrMenu = new JMenu("AddressBook");
         menuBar.add(addrMenu);
         JMenu budMenu = new JMenu("BuddyInfo");
@@ -24,6 +26,9 @@ public class AddressBookViewFrame extends JFrame {
         item = new JMenuItem("New AddressBook");
         item.addActionListener(c);
         addrMenu.add(item);
+        item = new JMenuItem("Export");
+        item.addActionListener(c);
+        options.add(item);
 
         item = new JMenuItem("Display");
         item.addActionListener(c);

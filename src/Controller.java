@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Controller implements ActionListener {
 
@@ -17,6 +18,14 @@ public class Controller implements ActionListener {
         if(a.equals("New AddressBook"))
         {
             AddressBookViewFrame f = new AddressBookViewFrame();
+        }
+        else if(a.equals("Export"))
+        {
+            try {
+                book.save((String) JOptionPane.showInputDialog("Name the file"));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
         else if(a.equals("Display"))
         {

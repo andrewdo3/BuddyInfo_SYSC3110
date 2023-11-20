@@ -4,32 +4,36 @@
  */
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddressBook
 {
     private DefaultListModel<String> buddies;
-    private ArrayList<BuddyInfo> arg;
+    private ArrayList<BuddyInfo> buddyInfos;
     private List<AddressBookViewFrame> views;
 
     public AddressBook()
     {
-        arg = new ArrayList<BuddyInfo>();
+        buddyInfos = new ArrayList<BuddyInfo>();
         buddies = new DefaultListModel<String>();
         this.views = new ArrayList<AddressBookViewFrame>();
     }
 
     public void addBuddy(BuddyInfo bud)
     {
-        arg.add(bud);
+        buddyInfos.add(bud);
         buddies.addElement(bud.toString());
     }
 
     public boolean removeBuddy(BuddyInfo bud)
     {
         buddies.removeElement(bud.toString());
-        return arg.remove(bud);
+        return buddyInfos.remove(bud);
     }
 
     public void addView(AddressBookViewFrame view)
@@ -49,6 +53,18 @@ public class AddressBook
     public ArrayList<AddressBookViewFrame> getViews()
     {
         return (ArrayList<AddressBookViewFrame>)views;
+    }
+
+    public void save(String fileName) throws IOException {
+        FileOutputStream ostream = new  FileOutputStream(fileName);
+
+        ObjectOutputStream p = new ObjectOutputStream(ostream);
+
+        for(BuddyInfo b: buddyInfos)
+        {
+            p.writeObject(b.toString());
+        }
+        ostream.close();
     }
 
     public static void main(String[] args) {
